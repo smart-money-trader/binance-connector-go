@@ -762,7 +762,7 @@ func (s *TickerPrice) Symbols(symbols []string) *TickerPrice {
 }
 
 // Send the request
-func (s *TickerPrice) Do(ctx context.Context, opts ...RequestOption) (res *TickerPriceResponse, err error) {
+func (s *TickerPrice) Do(ctx context.Context, opts ...RequestOption) (res []*TickerPriceResponse, err error) {
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/api/v3/ticker/price",
@@ -772,14 +772,21 @@ func (s *TickerPrice) Do(ctx context.Context, opts ...RequestOption) (res *Ticke
 		r.setParam("symbol", *s.symbol)
 	}
 	if s.symbols != nil {
-		r.setParam("symbols", *s.symbols)
+		body, _ := json.Marshal(*s.symbols)
+		r.setParam("symbols", string(body))
 	}
 	data, err := s.c.callAPI(ctx, r, opts...)
 	if err != nil {
 		return nil, err
 	}
-	res = new(TickerPriceResponse)
-	err = json.Unmarshal(data, res)
+	res = make([]*TickerPriceResponse, 0)
+	if s.symbol != nil {
+		item := new(TickerPriceResponse)
+		err = json.Unmarshal(data, item)
+		res = append(res, item)
+	} else if s.symbols != nil {
+		err = json.Unmarshal(data, &res)
+	}
 	if err != nil {
 		return nil, err
 	}
