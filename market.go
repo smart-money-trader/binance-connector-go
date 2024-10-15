@@ -874,6 +874,7 @@ type TickerBookTickerResponse struct {
 type Ticker struct {
 	c          *Client
 	symbol     string
+	symbols    []string
 	windowSize *string
 	tickerType *string
 }
@@ -881,6 +882,12 @@ type Ticker struct {
 // Symbol set symbol
 func (s *Ticker) Symbol(symbol string) *Ticker {
 	s.symbol = symbol
+	return s
+}
+
+// Symbol set symbols
+func (s *Ticker) Symbols(symbols []string) *Ticker {
+	s.symbols = symbols
 	return s
 }
 
@@ -897,13 +904,19 @@ func (s *Ticker) Type(tickerType string) *Ticker {
 }
 
 // Send the request
-func (s *Ticker) Do(ctx context.Context, opts ...RequestOption) (res *TickerResponse, err error) {
+func (s *Ticker) Do(ctx context.Context, opts ...RequestOption) (res []*TickerResponse, err error) {
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/api/v3/ticker",
 		secType:  secTypeNone,
 	}
-	r.setParam("symbol", s.symbol)
+	if s.symbol != "" {
+		r.setParam("symbol", s.symbol)
+	}
+	if len(s.symbols) != 0 {
+		body, _ := json.Marshal(s.symbols)
+		r.setParam("symbols", string(body))
+	}
 	if s.windowSize != nil {
 		r.setParam("windowSize", *s.windowSize)
 	}
@@ -914,8 +927,14 @@ func (s *Ticker) Do(ctx context.Context, opts ...RequestOption) (res *TickerResp
 	if err != nil {
 		return nil, err
 	}
-	res = new(TickerResponse)
-	err = json.Unmarshal(data, res)
+	res = make([]*TickerResponse, 0)
+	if s.symbol != "" {
+		item := new(TickerResponse)
+		err = json.Unmarshal(data, item)
+		res = append(res, item)
+	} else if s.symbols != nil {
+		err = json.Unmarshal(data, &res)
+	}
 	if err != nil {
 		return nil, err
 	}
