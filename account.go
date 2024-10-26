@@ -661,14 +661,14 @@ type GetOrderResponse struct {
 	Time                    uint64 `json:"time"`
 	UpdateTime              uint64 `json:"updateTime"`
 	IsWorking               bool   `json:"isWorking"`
-	WorkingTime             uint64 `json:"workingTime"`
+	WorkingTime             int64  `json:"workingTime"`
 	OrigQuoteOrderQty       string `json:"origQuoteOrderQty"`
 	SelfTradePreventionMode string `json:"selfTradePreventionMode"`
 	PreventedMatchId        int64  `json:"preventedMatchId,omitempty"`
 	PreventedQuantity       string `json:"preventedQuantity,omitempty"`
 	StrategyId              int64  `json:"strategyId,omitempty"`
 	StrategyType            int64  `json:"strategyType,omitempty"`
-	TrailingDelta           string `json:"trailingDelta,omitempty"`
+	TrailingDelta           int64  `json:"trailingDelta,omitempty"`
 	TrailingTime            int64  `json:"trailingTime,omitempty"`
 }
 
@@ -1027,7 +1027,7 @@ type NewOpenOrdersResponse struct {
 	Time                    uint64 `json:"time"`
 	UpdateTime              uint64 `json:"updateTime"`
 	IsWorking               bool   `json:"isWorking"`
-	WorkingTime             uint64 `json:"workingTime"`
+	WorkingTime             int64  `json:"workingTime"`
 	OrigQuoteOrderQty       string `json:"origQuoteOrderQty"`
 	SelfTradePreventionMode string `json:"selfTradePreventionMode"`
 	PreventedMatchId        int64  `json:"preventedMatchId,omitempty"`
