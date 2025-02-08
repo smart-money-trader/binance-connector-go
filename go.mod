@@ -1,4 +1,4 @@
-module github.com/jinchanbao/binance-connector-go
+module github.com/smart-money-trader/binance-connector-go
 
 go 1.22
 

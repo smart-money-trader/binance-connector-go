@@ -14,13 +14,13 @@ This is a lightweight library that works as a connector to [Binance public API](
 
 ## Installation
 ```shell
-go get github.com/jinchanbao/binance-connector-go
+go get github.com/smart-money-trader/binance-connector-go
 ```
 
 To reference the package in your code, use the following import statement:
 ```golang
 import (
-    "github.com/jinchanbao/binance-connector-go"
+    "github.com/smart-money-trader/binance-connector-go"
 )
 ```
 ## Authentication
@@ -52,7 +52,7 @@ import (
 	"context"
 	"fmt"
 
-	binance_connector "github.com/jinchanbao/binance-connector-go"
+	binance_connector "github.com/smart-money-trader/binance-connector-go"
 )
 
 func main() {
@@ -105,7 +105,7 @@ import (
 	"fmt"
 	"time"
 
-	binance_connector "github.com/jinchanbao/binance-connector-go"
+	binance_connector "github.com/smart-money-trader/binance-connector-go"
 )
 
 func main() {
@@ -145,7 +145,7 @@ import (
 	"fmt"
 	"time"
 
-	binance_connector "github.com/jinchanbao/binance-connector-go"
+	binance_connector "github.com/smart-money-trader/binance-connector-go"
 )
 
 func main() {
