@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	binance_connector "github.com/jinchanbao/binance-connector-go"
+	binance_connector "github.com/smart-money-trader/binance-connector-go"
 )
 
 func main() {

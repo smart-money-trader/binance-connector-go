@@ -20,7 +20,7 @@ import (
 	"time"
 
 	"github.com/bitly/go-simplejson"
-	"github.com/jinchanbao/binance-connector-go/handlers"
+	"github.com/smart-money-trader/binance-connector-go/handlers"
 )
 
 // TimeInForceType define time in force type of order
