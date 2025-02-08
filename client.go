@@ -385,6 +385,14 @@ func (c *Client) NewQueryMarginPriceIndexService() *QueryMarginPriceIndexService
 	return &QueryMarginPriceIndexService{c: c}
 }
 
+func (c *Client) NewQueryMarginAvailableInventoryService() *QueryMarginAvailableInventoryService {
+	return &QueryMarginAvailableInventoryService{c: c}
+}
+
+func (c *Client) NewQueryLiabilityCoinLeverageBracketService() *QueryLiabilityCoinLeverageBracketService {
+	return &QueryLiabilityCoinLeverageBracketService{c: c}
+}
+
 func (c *Client) NewMarginAccountNewOrderService() *MarginAccountNewOrderService {
 	return &MarginAccountNewOrderService{c: c}
 }
@@ -457,6 +465,10 @@ func (c *Client) NewMarginAccountQueryMaxTransferOutAmountService() *MarginAccou
 	return &MarginAccountQueryMaxTransferOutAmountService{c: c}
 }
 
+func (c *Client) NewMarginAccountAdjustCrossMaxLeverageService() *MarginAccountAdjustCrossMaxLeverageService {
+	return &MarginAccountAdjustCrossMaxLeverageService{c: c}
+}
+
 func (c *Client) NewMarginAccountSummaryService() *MarginAccountSummaryService {
 	return &MarginAccountSummaryService{c: c}
 }
@@ -483,6 +495,10 @@ func (c *Client) NewAllIsolatedMarginSymbolService() *AllIsolatedMarginSymbolSer
 
 func (c *Client) NewMarginToggleBnbBurnService() *MarginToggleBnbBurnService {
 	return &MarginToggleBnbBurnService{c: c}
+}
+
+func (c *Client) NewMarginIsolatedCapitalFlowService() *MarginIsolatedCapitalFlowService {
+	return &MarginIsolatedCapitalFlowService{c: c}
 }
 
 func (c *Client) NewMarginBnbBurnStatusService() *MarginBnbBurnStatusService {
@@ -515,6 +531,18 @@ func (c *Client) NewMarginCrossCollateralRatioService() *MarginCrossCollateralRa
 
 func (c *Client) NewMarginSmallLiabilityExchangeCoinListService() *MarginSmallLiabilityExchangeCoinListService {
 	return &MarginSmallLiabilityExchangeCoinListService{c: c}
+}
+
+func (c *Client) NewMarginManualLiquidationService() *MarginManualLiquidationService {
+	return &MarginManualLiquidationService{c: c}
+}
+
+func (c *Client) NewMarginAccountNewOTOService() *MarginAccountNewOTOService {
+	return &MarginAccountNewOTOService{c: c}
+}
+
+func (c *Client) NewMarginAccountNewOTOCOService() *MarginAccountNewOTOCOService {
+	return &MarginAccountNewOTOCOService{c: c}
 }
 
 func (c *Client) NewMarginSmallLiabilityExchangeService() *MarginSmallLiabilityExchangeService {
@@ -703,6 +731,10 @@ func (c *Client) NewGetSystemStatusService() *GetSystemStatusService {
 	return &GetSystemStatusService{c: c}
 }
 
+func (c *Client) NewGetSymbolsDelistScheduleService() *GetSymbolsDelistScheduleService {
+	return &GetSymbolsDelistScheduleService{c: c}
+}
+
 func (c *Client) NewGetAllCoinsInfoService() *GetAllCoinsInfoService {
 	return &GetAllCoinsInfoService{c: c}
 }
@@ -735,6 +767,10 @@ func (c *Client) NewDepositAddressService() *DepositAddressService {
 	return &DepositAddressService{c: c}
 }
 
+func (c *Client) NewDepositAddressListService() *DepositAddressListService {
+	return &DepositAddressListService{c: c}
+}
+
 func (c *Client) NewAccountStatusService() *AccountStatusService {
 	return &AccountStatusService{c: c}
 }
@@ -763,6 +799,10 @@ func (c *Client) NewAssetDetailV2Service() *AssetDetailV2Service {
 	return &AssetDetailV2Service{c: c}
 }
 
+func (c *Client) NewWalletBalanceService() *WalletBalanceService {
+	return &WalletBalanceService{c: c}
+}
+
 func (c *Client) NewTradeFeeService() *TradeFeeService {
 	return &TradeFeeService{c: c}
 }
@@ -783,10 +823,6 @@ func (c *Client) NewUserAssetService() *UserAssetService {
 	return &UserAssetService{c: c}
 }
 
-func (c *Client) NewBUSDConvertService() *BUSDConvertService {
-	return &BUSDConvertService{c: c}
-}
-
 func (c *Client) NewBUSDConvertHistoryService() *BUSDConvertHistoryService {
 	return &BUSDConvertHistoryService{c: c}
 }
@@ -795,12 +831,16 @@ func (c *Client) NewCloudMiningPaymentHistoryService() *CloudMiningPaymentHistor
 	return &CloudMiningPaymentHistoryService{c: c}
 }
 
-func (c *Client) NewAPIKeyPermissionService() *APIKeyPermissionService {
-	return &APIKeyPermissionService{c: c}
+func (c *Client) NewUserDelegationHistoryService() *UserDelegationHistoryService {
+	return &UserDelegationHistoryService{c: c}
 }
 
-func (c *Client) NewAutoConvertStableCoinService() *AutoConvertStableCoinService {
-	return &AutoConvertStableCoinService{c: c}
+func (c *Client) NewAccountInfoService() *AccountInfoService {
+	return &AccountInfoService{c: c}
+}
+
+func (c *Client) NewAPIKeyPermissionService() *APIKeyPermissionService {
+	return &APIKeyPermissionService{c: c}
 }
 
 // User Data Streams:

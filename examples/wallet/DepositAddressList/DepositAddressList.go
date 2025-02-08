@@ -8,21 +8,22 @@ import (
 )
 
 func main() {
-	AutoConvertStableCoin()
+	DepositAddressList()
 }
 
-func AutoConvertStableCoin() {
+func DepositAddressList() {
 	apiKey := "your api key"
 	secretKey := "your secret key"
 	baseURL := "https://api.binance.com"
 
 	client := binance_connector.NewClient(apiKey, secretKey, baseURL)
 
-	// AutoConvertStableCoinService - /sapi/v1/capital/contract/convertible-coins
-	autoConvertStableCoin, err := client.NewAutoConvertStableCoinService().Do(context.Background())
+	// DepositAddressListService - /sapi/v1/capital/deposit/address/list
+	depositAddressList, err := client.NewDepositAddressListService().Coin("BTC").
+		Do(context.Background())
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println(binance_connector.PrettyPrint(autoConvertStableCoin))
+	fmt.Println(binance_connector.PrettyPrint(depositAddressList))
 }
